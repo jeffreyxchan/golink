@@ -11,7 +11,5 @@ COPY ./src /app
 
 WORKDIR /app
 
-RUN ls /app
-
 EXPOSE 3000
 CMD ["node", "app.js"]
