@@ -10,7 +10,7 @@ $(() => {
 		}
 
 		$.ajax({
-			url: "/link",
+			url: "/go-link/link",
 			type: "POST",
 			data: JSON.stringify(link),
 			contentType: "application/json"
