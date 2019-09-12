@@ -6,6 +6,7 @@ const bodyParser = require("body-parser")
 const db = require("./db")
 const { SERVICE_PORT } = require("./config")
 const linkRouter = require("./routes/link")
+const { PROXY_PATH } = require("./config")
 
 const app = express()
 
@@ -16,8 +17,8 @@ app.use(morgan("common"))
 app.use(bodyParser.json())
 
 // Configure static file serving to point at static directory.
-app.use(express.static(path.join(__dirname, "static")))
+app.use(PROXY_PATH, express.static(path.join(__dirname, "static")))
 
-app.use(linkRouter)
+app.use(PROXY_PATH, linkRouter)
 
 app.listen(SERVICE_PORT, () => console.log(`Server running on port ${SERVICE_PORT}`))
