@@ -2,6 +2,7 @@ const express = require("express")
 
 const { Link } = require("../db")
 const c = require("./constants")
+const config = require("../config")
 
 let linkRouter = express.Router()
 
@@ -14,7 +15,7 @@ function doLinkRedirect(req, res) {
 		})
 		.catch(err => {
 			// Redirect to creation page when link not found.
-			return res.redirect("/")
+			return res.redirect(config.PROXY_PATH)
 		})
 }
 
